@@ -213,7 +213,7 @@ const Card1 = React.memo(({ data }) => {
             <View style={styles.borderLine}></View>
             <View style={styles.cardFooter}>
               <Text style={styles.cardUpdate}>
-                Update At:{' '}
+                Updated At:{' '}
                 {device.currentTime
                   ? device.currentTime.split(' ')[1]
                   : 'Not Available'}

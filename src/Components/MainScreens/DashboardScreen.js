@@ -653,10 +653,19 @@ const Dashboard = ({ navigation }) => {
   }, [isOnline]);
 
   useEffect(() => {
+    let interval
     if (isOnline) {
       getAPIData();  
+     interval = setInterval(() => {
+      getAPIData();
+      }, 8000);
     } else {
       getOfflineData();  
+    }
+    return () => {
+      if(interval){
+        clearInterval(interval);
+      }
     }
   }, [isOnline]);
 

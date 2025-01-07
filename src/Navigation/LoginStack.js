@@ -59,7 +59,7 @@ const Stack = createStackNavigator();
 
 const LoginStack = ({navigation}) => {
     return (
-      <Suspense fallback={<div>Loading...</div>}>
+      // <Suspense fallback={<div>Loading...</div>}>
         <Stack.Navigator initialRouteName="WhoAmI" screenOptions={{headerShown: false}}>
           <Stack.Screen name="WhoAmI" component={WhoAmI}/>
           {/* Login Screen */}
@@ -89,7 +89,7 @@ const LoginStack = ({navigation}) => {
           <Stack.Screen name="WifiOffIcon" component={WifiOffIcon}/>
           <Stack.Screen name='RetryButton' component={RetryButton}/>
         </Stack.Navigator>
-      </Suspense>
+      // </Suspense>
     );
 };
 

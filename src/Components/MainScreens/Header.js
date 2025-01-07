@@ -1,29 +1,47 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import {View, Text, ScrollView, StyleSheet, Animated, TouchableOpacity} from 'react-native';
-import { Image } from 'react-native-elements';
+// import { Image } from 'react-native-elements';
 
 const Header = () => {
-    return(
+    const [time ,setTime] = useState(new Date().toLocaleTimeString())
+
+    useEffect(()=>{
+      //update the time every second
+      const interval = setInterval(()=>{
+        setTime(new Date().toLocaleTimeString())
+      },1000)
+      return () => clearInterval(interval)
+    }, [])
+  return(
         <View style={styles.header}>
           {/* <View>
             <Image source={require('../../assets/logo.png')} style={styles.logo}/>
           </View> */}
         <Text style={styles.headerText}>Welcome Users</Text>
     <View style={styles.headerRight}>
-    <Text style={styles.dateTimeText}>Date: 27-09-2024</Text>
-    <Text style={styles.dateTimeText}>Time: 16:39:10</Text>
+      <Text style={styles.dateTimeText}>Date: {new Date().toLocaleString('en-GB'
+      , {
+        year: 'numeric',
+        month: '2-digit',
+        day: '2-digit',
+        }
+      ).replace(/\//g, '-')}</Text>
+        <Text style={styles.dateTimeText}>Time: {time}</Text>
+
   </View>
 </View>
     )
 }
 const styles = StyleSheet.create({
     header: {
-      backgroundColor: '#0163d2',
+      // backgroundColor: '#0163d2',
       // backgroundColor: '#4299e1',
+      backgroundColor:'rgb(30, 144, 255)',
       padding: 16,
       flexDirection: 'row',
       justifyContent: 'space-between',
       alignItems: 'center',
+      elevation:10
       // marginBottom:20
     },
     headerText: {

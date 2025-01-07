@@ -501,7 +501,7 @@ const ProfileScreen = ({route, navigation}) => {
             <View style={styles.borderLine2}></View>
             <View style={styles.cardFooter}>
               <Text style={styles.cardUpdate}>
-                Update At:{' '}
+                Updated At:{' '}
                 {device.CurrentTime
                   ? device.CurrentTime.split(' ')[1]
                   : 'Not Available'}

@@ -14,8 +14,9 @@ export default function WhoAmI({ navigation }) {
     const postPhone = {
       method: 'get',
       url: `http://103.137.36.215:4500/api/users/whoami`,
-      withCredentials: true,
-      headers: { crossDomain: true, 'Content-Type': 'application/json' },
+      withCredentials: true, // This is the key to send cookies with the request
+      // this is used to check session id or cookies in backend if user is availbale or not
+      headers: { crossDomain: true, 'Content-Type': 'application/json' }, 
     }
 
     try {
